@@ -1,0 +1,3 @@
+[submodule "strapi-docker"]
+	path = strapi-docker
+	url = git://github.com/strapi/strapi-docker
