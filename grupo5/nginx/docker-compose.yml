@@ -1,0 +1,26 @@
+version: "2.1"
+
+services:
+  web:
+    image: nginx
+    volumes:
+     - ./ProxyClients.template:/etc/nginx/conf.d/ProxyClients.template
+    ports:
+     - "8080:80"
+       #environment:
+       #- NGINX_HOST=2001:a:a:a::10
+       #- NGINX_PORT=80
+       #command: /bin/bash -c "envsubst < /etc/nginx/conf.d/ProxyClients.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    networks:
+      net0:
+        ipv6_address: 2001:a:a:a::10
+
+networks:
+  net0:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:a:a:a::/64
+

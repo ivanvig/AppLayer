@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app="inventario">
+	<head>
+		<title>Hello Cuenca</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    	<script src="client.js"></script>
+	</head>
+
+	<body>
+		<div ng-controller="server_inv">
+                <div ng-repeat="servidor in servidores">
+                    <h1 ng-click="cargar(servidor.id)">{{servidor.Nombre}}</h1>
+		    <h5>Creado: {{server_info[$index].createdAt}}</h5>
+		    <h5>Ultima modificacion: {{server_info[$index].updatedAt}}</h5>
+                </div>
+        </div>
+                
+	</body>
+</html> 
