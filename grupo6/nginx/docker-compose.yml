@@ -6,21 +6,34 @@ services:
     volumes:
      - ./ProxyClients.template:/etc/nginx/conf.d/ProxyClients.template
     ports:
-     - "8080:80"
+     - "80:80"
+     - "443:443"
        #environment:
        #- NGINX_HOST=2001:a:a:a::10
        #- NGINX_PORT=80
        #command: /bin/bash -c "envsubst < /etc/nginx/conf.d/ProxyClients.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
     networks:
       net0:
-        ipv6_address: 2001:a:a:a::10
+        ipv6_address: 2001:b:1::2
+      net1:
+        ipv6_address: 2001:b:2::2
 
 networks:
   net0:
     driver: "bridge"
+    name: net0
     enable_ipv6: true
     ipam:
       driver: default
       config:
-        - subnet: 2001:a:a:a::/64
+        - subnet: 2001:b:1::/64
+
+  net1:
+    driver: "bridge"
+    enable_ipv6: true
+    name: net1    
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:2::/64
 

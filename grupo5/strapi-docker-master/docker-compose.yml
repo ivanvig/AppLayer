@@ -20,6 +20,9 @@ services:
     depends_on:
       - db
     restart: always
+    networks:
+      net0:
+        ipv6_address: 2001:a:1::3
 
   db:
     image: mongo
@@ -30,3 +33,8 @@ services:
     volumes:
       - ./db:/data/db
     restart: always
+
+networks:
+  net0:
+    external:
+      name: net0
