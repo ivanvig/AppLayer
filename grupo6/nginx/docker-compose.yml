@@ -20,20 +20,9 @@ services:
 
 networks:
   net0:
-    driver: "bridge"
-    name: net0
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:b:1::/64
-
+    external:
+      name: net0
   net1:
-    driver: "bridge"
-    enable_ipv6: true
-    name: net1    
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:b:2::/64
+    external:
+      name: net1
 

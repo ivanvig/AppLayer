@@ -1,0 +1,18 @@
+networks:
+  net0:
+    driver: "bridge"
+    name: net0
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:a:1::/64
+
+  net1:
+    driver: "bridge"
+    name: net1
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:a:2::/64

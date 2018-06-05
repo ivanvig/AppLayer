@@ -6,7 +6,8 @@ services:
     volumes:
      - ./ProxyClients.template:/etc/nginx/conf.d/ProxyClients.template
     ports:
-     - "8080:80"
+     - "80:80"
+     - "443:443"
        #environment:
        #- NGINX_HOST=2001:a:a:a::10
        #- NGINX_PORT=80
@@ -19,20 +20,8 @@ services:
 
 networks:
   net0:
-    driver: "bridge"
-    name: net0
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:a:1::/64
-
+    external:
+      name: net0
   net1:
-    driver: "bridge"
-    name: net1
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:a:2::/64
-
+    external:
+      name: net1
