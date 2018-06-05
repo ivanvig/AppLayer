@@ -1,0 +1,168 @@
+version: '2.1'
+
+services:
+ 
+
+  b2:
+    build: ./bgp/.
+    volumes:
+      - ./volumes/bgp/b2/zebra.conf:/etc/tp7/zebra.conf:ro
+      - ./volumes/bgp/b2/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
+      - ./volumes/bgp/b2/bgpd.conf:/etc/tp7d/bgpd.conf:ro
+      - ./volumes/bgp/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+    image: bgp:20180426
+    privileged: true
+    ports:
+      #admin
+      - 10201:2601
+      #ospf ipv6
+      - 10203:2606d
+      #bgp
+      - 10204:2605
+      -	80:80
+    networks:
+      redD:
+        ipv6_address: 2001:d:1::10
+      red3:
+        ipv6_address: 2001:b:3::3
+
+  r4:
+    build: ./ospf/.
+    volumes:
+      - ./volumes/ospf/r4/zebra.conf:/etc/tp7/zebra.conf:ro
+      - ./volumes/ospf/r4/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+    image: ospf:20180419
+    privileged: true
+    ports:
+      #admin
+      - 10014:2601
+      #ospf ipv6
+      - 10034:2606
+    networks:
+      red2:
+        ipv6_address: 2001:b:2::10
+      red3: 
+	ipv6_address: 2001:b:3::4
+     
+  r6:
+    build: ./ospf/.
+    volumes:
+      - ./volumes/ospf/r6/zebra.conf:/etc/tp7/zebra.conf:ro
+      - ./volumes/ospf/r6/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+    image: ospf:20180419
+    privileged: true
+    ports:
+      #admin
+      - 10016:2601
+      #ospf ipv6
+      - 10036:2606
+    networks:
+      red3:
+        ipv6_address: 2001:b:3::2
+      red5:
+        ipv6_address: 2001:b:5::20
+      red7:
+        ipv6_address: 2001:b:7::10
+
+  r8:
+    build: ./ospf/.
+    volumes:
+      - ./volumes/ospf/r8/zebra.conf:/etc/tp7/zebra.conf:ro
+      - ./volumes/ospf/r8/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+    image: ospf:20180419
+    privileged: true
+    ports:
+      #admin
+      - 10018:2601
+      #ospf ipv6
+      - 10038:2606
+    networks:
+      red3:
+        ipv6_address: 2001:b:3::5
+      red6:
+        ipv6_address: 2001:b:6::10
+      red7:
+        ipv6_address: 2001:b:7::20
+
+  
+  h12:
+    build: ./ospf/.
+    volumes:
+      - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+    image: ospf:20180419
+    privileged: true
+    ports:
+      #admin
+      - 10021:2601
+      #ospf ipv6
+      - 10041:2606
+    networks:
+      red5:
+        ipv6_address: 2001:b:5::20
+
+ 
+  h14:
+    build: ./ospf/.
+    volumes:
+      - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+    image: ospf:20180419
+    privileged: true
+    ports:
+      #admin
+      - 10023:2601
+      #ospf ipv6
+      - 10043:2606
+    networks:
+      red6:
+        ipv6_address: 2001:b:6::20
+
+
+networks:
+  
+  redD:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:d:1::/64
+  red2:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:2::/64
+  red3:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:3::/64
+  
+  red5:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:5::/64
+  red6:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:6::/64
+  red7:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:7::/64
+ 
