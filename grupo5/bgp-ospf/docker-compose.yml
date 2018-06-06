@@ -121,48 +121,22 @@ services:
 
 
 networks:
-  
   redD:
-    driver: "bridge"
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:d:1::/64
+    external:
+      name: redD
   red2:
-    driver: "bridge"
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:a:2::/64
+    external:
+      name: red2
   red3:
-    driver: "bridge"
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:a:3::/64
-  
+    external:
+      name: red3
   red5:
-    driver: "bridge"
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:a:5::/64
+    external:
+      name: red5
   red6:
-    driver: "bridge"
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:a:6::/64
+    external:
+      name: red6
   red7:
-    driver: "bridge"
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:a:7::/64
+    external:
+      name: red7
  

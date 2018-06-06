@@ -16,3 +16,57 @@ networks:
       driver: default
       config:
         - subnet: 2001:a:2::/64
+
+  redD:
+    driver: "bridge"
+    name: redD
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:d:1::/64
+
+  red2:
+    driver: "bridge"
+    name: red2
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:2::/64
+
+  red3:
+    driver: "bridge"
+    name: red3
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:3::/64
+  
+  red5:
+    driver: "bridge"
+    name: red5
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:5::/64
+
+  red6:
+    driver: "bridge"
+    name: red6
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:6::/64
+
+  red7:
+    driver: "bridge"
+    name: red7
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:b:7::/64

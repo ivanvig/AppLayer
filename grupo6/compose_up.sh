@@ -8,3 +8,7 @@ cd ..
 cd strapi-docker-master
 docker-compose up
 cd ..
+# OSPF
+cd bgp-ospf
+docker-compose up
+cd ..
