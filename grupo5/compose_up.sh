@@ -2,13 +2,16 @@
 
 # Nginx
 cd nginx
-docker-compose up
+docker-compose up &
 cd ..
 # Strapi
 cd strapi-docker-master
-docker-compose up
+docker-compose up &
 cd ..
 # OSPF
 cd bgp-ospf
-docker-compose up
+docker-compose up &
 cd ..
+# Webmin-bind
+cd webmin-bind
+docker-compose up &

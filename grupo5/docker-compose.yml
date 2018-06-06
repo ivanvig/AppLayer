@@ -1,5 +1,5 @@
 networks:
-  net0:
+  net0: #Strapi - Nginx
     driver: "bridge"
     name: net0
     enable_ipv6: true
@@ -8,7 +8,7 @@ networks:
       config:
         - subnet: 2001:a:1::/64
 
-  net1:
+  net1: #Nginx - R3
     driver: "bridge"
     name: net1
     enable_ipv6: true
@@ -43,6 +43,15 @@ networks:
       driver: default
       config:
         - subnet: 2001:a:3::/64
+
+  red4: #DNS - R3
+    driver: "bridge"
+    name: red4
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:a:4::/64
   
   red5:
     driver: "bridge"

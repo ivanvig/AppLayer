@@ -9,19 +9,14 @@ services:
     restart: always
     image: sameersbn/bind:latest
     ports:
-#    - "53:53/tcp"
-#    - "53:53/udp"
+    - "53:53/tcp"
+    - "53:53/udp"
     - "10000:10000/tcp"
     networks:
-      red0:
-        ipv6_address: 2001:a:a:a::2
+      red4:
+        ipv6_address: 2001:b:4::2
 
 networks:
-  red0:
-    name: red0
-    driver: "bridge"
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:a:a:a::/64
+  red4:
+    external:
+      name: red4
