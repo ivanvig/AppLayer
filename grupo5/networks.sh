@@ -1,4 +1,4 @@
-docker network create --driver bridge --ipv6 --subnet 2001:a:1::/64 --subnet 192.168.1.0/24 net0
+docker network create --driver bridge --ipv6 --subnet 2001:a:1::/64 --subnet 192.168.2.0/24 net0
 docker network create --driver bridge --ipv6 --subnet 2001:d:1::/64 redD
 docker network create --driver bridge --ipv6 --subnet 2001:a:2::/64 red2
 docker network create --driver bridge --ipv6 --subnet 2001:a:3::/64 red3
