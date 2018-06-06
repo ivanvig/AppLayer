@@ -6,9 +6,9 @@ services:
   b1:
     build: ./bgp/.
     volumes:
-      - ./volumes/bgp/b2/zebra.conf:/etc/tp7/zebra.conf:ro
-      - ./volumes/bgp/b2/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
-      - ./volumes/bgp/b2/bgpd.conf:/etc/tp7d/bgpd.conf:ro
+      - ./volumes/bgp/b1/zebra.conf:/etc/tp7/zebra.conf:ro
+      - ./volumes/bgp/b1/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
+      - ./volumes/bgp/b1/bgpd.conf:/etc/tp7d/bgpd.conf:ro
       - ./volumes/bgp/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
     image: bgp:20180426
     privileged: true
@@ -16,10 +16,12 @@ services:
       #admin
       - 10201:2601
       #ospf ipv6
-      - 10203:2606d
+      - 10203:2606
       #bgp
       - 10204:2605
+      - 443:443
       -	80:80
+      - 53:53
     networks:
       redD:
         ipv6_address: 2001:d:1::10
@@ -29,8 +31,8 @@ services:
   r3:
     build: ./ospf/.
     volumes:
-      - ./volumes/ospf/r4/zebra.conf:/etc/tp7/zebra.conf:ro
-      - ./volumes/ospf/r4/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
+      - ./volumes/ospf/r3/zebra.conf:/etc/tp7/zebra.conf:ro
+      - ./volumes/ospf/r3/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
       - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
@@ -48,8 +50,8 @@ services:
   r5:
     build: ./ospf/.
     volumes:
-      - ./volumes/ospf/r6/zebra.conf:/etc/tp7/zebra.conf:ro
-      - ./volumes/ospf/r6/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
+      - ./volumes/ospf/r5/zebra.conf:/etc/tp7/zebra.conf:ro
+      - ./volumes/ospf/r5/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
       - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
@@ -69,8 +71,8 @@ services:
   r7:
     build: ./ospf/.
     volumes:
-      - ./volumes/ospf/r8/zebra.conf:/etc/tp7/zebra.conf:ro
-      - ./volumes/ospf/r8/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
+      - ./volumes/ospf/r7/zebra.conf:/etc/tp7/zebra.conf:ro
+      - ./volumes/ospf/r7/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
       - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true

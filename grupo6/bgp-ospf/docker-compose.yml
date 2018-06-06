@@ -16,10 +16,13 @@ services:
       #admin
       - 10201:2601
       #ospf ipv6
-      - 10203:2606d
+      - 10203:2606
       #bgp
       - 10204:2605
       -	80:80
+      - 443:443
+      -	53:53
+	
     networks:
       redD:
         ipv6_address: 2001:d:1::10
