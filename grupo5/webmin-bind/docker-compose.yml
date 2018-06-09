@@ -3,7 +3,7 @@ version: '2.1'
 services:
   bind:
     volumes:
-    - /srv/docker/bind:/data/bind
+    - ./bind:/data/bind
     environment: 
     - ROOT_PASSWORD=ubuntu
     restart: always
