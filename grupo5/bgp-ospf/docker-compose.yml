@@ -1,15 +1,13 @@
 version: '2.1'
 
 services:
- 
-
   b1:
     build: ./bgp/.
     volumes:
-      - ./volumes/bgp/b1/zebra.conf:/etc/tp7/zebra.conf:ro
-      - ./volumes/bgp/b1/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
-      - ./volumes/bgp/b1/bgpd.conf:/etc/tp7d/bgpd.conf:ro
-      - ./volumes/bgp/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+      - ./volumes/bgp/b1/zebra.conf:/etc/quagga/zebra.conf:ro
+      - ./volumes/bgp/b1/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
+      - ./volumes/bgp/b1/bgpd.conf:/etc/quagga/bgpd.conf:ro
+      - ./volumes/bgp/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: bgp:20180426
     privileged: true
     ports:
@@ -19,9 +17,8 @@ services:
       - 10203:2606
       #bgp
       - 10204:2605
-      - 443:443
-      - 80:80
       - 53:53
+      - 443:443
     networks:
       redD:
         ipv6_address: 2001:d:1::10
@@ -31,9 +28,9 @@ services:
   r3:
     build: ./ospf/.
     volumes:
-      - ./volumes/ospf/r3/zebra.conf:/etc/tp7/zebra.conf:ro
-      - ./volumes/ospf/r3/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
-      - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+      - ./volumes/ospf/r3/zebra.conf:/etc/quagga/zebra.conf:ro
+      - ./volumes/ospf/r3/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
     ports:
@@ -44,15 +41,15 @@ services:
     networks:
       red2:
         ipv6_address: 2001:a:2::10
-      red3: 
+      red3:
         ipv6_address: 2001:a:3::4
      
   r5:
     build: ./ospf/.
     volumes:
-      - ./volumes/ospf/r5/zebra.conf:/etc/tp7/zebra.conf:ro
-      - ./volumes/ospf/r5/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
-      - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+      - ./volumes/ospf/r5/zebra.conf:/etc/quagga/zebra.conf:ro
+      - ./volumes/ospf/r5/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
     ports:
@@ -71,9 +68,9 @@ services:
   r7:
     build: ./ospf/.
     volumes:
-      - ./volumes/ospf/r7/zebra.conf:/etc/tp7/zebra.conf:ro
-      - ./volumes/ospf/r7/ospf6d.conf:/etc/tp7/ospf6d.conf:ro
-      - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+      - ./volumes/ospf/r7/zebra.conf:/etc/quagga/zebra.conf:ro
+      - ./volumes/ospf/r7/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
     ports:
@@ -93,7 +90,7 @@ services:
   h11:
     build: ./ospf/.
     volumes:
-      - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
     ports:
@@ -109,7 +106,7 @@ services:
   h13:
     build: ./ospf/.
     volumes:
-      - ./volumes/ospf/supervisord.conf:/etc/tp7/supervisor/conf.d/supervisord.conf:ro
+      - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
     ports:
@@ -121,7 +118,7 @@ services:
       red6:
         ipv6_address: 2001:a:6::20
 
-
+  
 networks:
   redD:
     external:
