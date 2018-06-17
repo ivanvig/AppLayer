@@ -17,8 +17,8 @@ services:
       - 10203:2606
       #bgp
       - 10204:2605
-      - 53:53
-      - 443:443
+      #- 53:53
+      #- 443:443
     networks:
       redD:
         ipv6_address: 2001:d:1::10
@@ -43,6 +43,8 @@ services:
         ipv6_address: 2001:a:2::10
       red3:
         ipv6_address: 2001:a:3::4
+      red4:
+        ipv6_address: 2001:a:4::10
      
   r5:
     build: ./ospf/.

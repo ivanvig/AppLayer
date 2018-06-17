@@ -6,7 +6,7 @@ services:
     environment:
       - APP_NAME=strapi-app
       - DATABASE_CLIENT=mongo
-      - DATABASE_HOST=[2001:a:1::5]
+      - DATABASE_HOST=[2001:a:1::2]
       - DATABASE_PORT=27017
       - DATABASE_NAME=strapi
       - DATABASE_USERNAME=
@@ -14,9 +14,9 @@ services:
       - HOST=localhost
     #ports:
     #  - 1337:1337
-    volumes:
-      - ./strapi-app:/usr/src/api/strapi-app
-      - /usr/src/api/strapi-app/node_modules
+    #volumes:
+      #- ./strapi-app:/usr/src/api/strapi-app
+      #- /usr/src/api/strapi-app/node_modules
     depends_on:
       - db
     restart: always
