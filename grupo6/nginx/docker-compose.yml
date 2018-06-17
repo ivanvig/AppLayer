@@ -4,7 +4,8 @@ services:
   web:
     image: nginx
     volumes:
-     - ./ProxyClients.template:/etc/nginx/conf.d/ProxyClients.template
+     - ./Config.template:/etc/nginx/nginx.conf
+     - ./ssl:/etc/nginx/ssl
     ports:
      - "80:80"
      - "443:443"
@@ -15,14 +16,13 @@ services:
     networks:
       net0:
         ipv6_address: 2001:b:1::2
-      net1:
+      red2:
         ipv6_address: 2001:b:2::2
 
 networks:
   net0:
     external:
       name: net0
-  net1:
+  red2:
     external:
-      name: net1
-
+      name: red2

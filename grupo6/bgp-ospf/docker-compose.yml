@@ -43,6 +43,8 @@ services:
         ipv6_address: 2001:b:2::10
       red3:
         ipv6_address: 2001:b:3::4
+      red4:
+        ipv6_address: 2001:b:4::10
      
   r6:
     build: ./ospf/.
@@ -129,6 +131,9 @@ networks:
   red3:
     external:
       name: red3
+  red4:
+    external:
+      name: red4
   red5:
     external:
       name: red5
