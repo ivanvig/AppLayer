@@ -1,0 +1,9 @@
+$ttl 38400
+redes.fcefyn.	IN	SOA	bb60ded4e988. admin.admin. (
+			1528582771
+			10800
+			3600
+			604800
+			38400 )
+redes.fcefyn.	IN	NS	bb60ded4e988.
+grupo5.redes.fcefyn.	IN	AAAA	2001:a:2::2
