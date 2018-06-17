@@ -131,6 +131,9 @@ networks:
   red3:
     external:
       name: red3
+  red4:
+    external:
+      name: red4
   red5:
     external:
       name: red5
