@@ -1,7 +1,6 @@
 version: '2.1'
 
 services:
-  privileged: true
   bind:
     volumes:
     - ./bind:/data/bind
@@ -9,6 +8,7 @@ services:
     - ROOT_PASSWORD=ubuntu
     restart: always
     image: sameersbn/bind:latest
+    privileged: true
     ports:
     - "53:53/tcp"
     - "53:53/udp"
