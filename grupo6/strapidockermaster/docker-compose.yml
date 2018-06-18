@@ -7,14 +7,14 @@ services:
     environment:
       - APP_NAME=strapi-app
       - DATABASE_CLIENT=mongo
-      - DATABASE_HOST=db
+      - DATABASE_HOST=[2001:b:1::2]
       - DATABASE_PORT=27017
       - DATABASE_NAME=strapi
       - DATABASE_USERNAME=
       - DATABASE_PASSWORD=
       - HOST=localhost
-    ports:
-      - 1337:1337
+        #ports:
+        #  - 1337:1337
     volumes:
       - ./strapi-app:/usr/src/api/strapi-app
       - /usr/src/api/strapi-app/node_modules
@@ -30,13 +30,18 @@ services:
     privileged: true
     environment:
       - MONGO_INITDB_DATABASE=strapi
-    ports:
-      - 27017:27017
+        #ports:
+        #  - 27017:27017
     volumes:
       - ./db:/data/db
     restart: always
+    command: mongod --ipv6 --bind_ip_all
+    networks:
+      net0:
+        ipv6_address: 2001:b:1::5
 
 networks:
   net0:
     external:
       name: net0
+
