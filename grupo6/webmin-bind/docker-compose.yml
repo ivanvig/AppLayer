@@ -9,7 +9,7 @@ services:
     restart: always
     image: sameersbn/bind:latest
     privileged: true
-    ports:
+    #ports:
     #- "53:53/tcp"
     #- "53:53/udp"
     #- "10000:10000/tcp"

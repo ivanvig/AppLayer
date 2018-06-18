@@ -99,7 +99,6 @@ services:
       - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
       - ./client:/client
       - ./resolv.conf:/etc/resolv.conf
-      - ./resolv.conf:/etc/resolv.conf
     image: ospf:20180419
     privileged: true
     ports:
@@ -117,7 +116,6 @@ services:
     volumes:
       - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
       - ./client:/client
-      - ./resolv.conf:/etc/resolv.conf
       - ./resolv.conf:/etc/resolv.conf
     image: ospf:20180419
     privileged: true
