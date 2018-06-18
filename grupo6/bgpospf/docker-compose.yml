@@ -8,6 +8,7 @@ services:
       - ./volumes/bgp/b2/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/bgp/b2/bgpd.conf:/etc/quagga/bgpd.conf:ro
       - ./volumes/bgp/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./resolv.conf:/etc/resolv.conf
     image: bgp:20180426
     privileged: true
     ports:
@@ -31,6 +32,7 @@ services:
       - ./volumes/ospf/r4/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/ospf/r4/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./resolv.conf:/etc/resolv.conf
     image: ospf:20180419
     privileged: true
     ports:
@@ -52,6 +54,7 @@ services:
       - ./volumes/ospf/r6/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/ospf/r6/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./resolv.conf:/etc/resolv.conf
     image: ospf:20180419
     privileged: true
     ports:
@@ -73,6 +76,7 @@ services:
       - ./volumes/ospf/r8/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/ospf/r8/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./resolv.conf:/etc/resolv.conf
     image: ospf:20180419
     privileged: true
     ports:
@@ -94,6 +98,7 @@ services:
     volumes:
       - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
       - ./client:/client
+      - ./resolv.conf:/etc/resolv.conf
     image: ospf:20180419
     privileged: true
     ports:
@@ -111,6 +116,7 @@ services:
     volumes:
       - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
       - ./client:/client
+      - ./resolv.conf:/etc/resolv.conf
     image: ospf:20180419
     privileged: true
     ports:
