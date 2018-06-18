@@ -3,6 +3,7 @@ version: '3'
 services:
   api:
     image: strapi/strapi
+    privileged: true
     environment:
       - APP_NAME=strapi-app
       - DATABASE_CLIENT=mongo
@@ -26,6 +27,7 @@ services:
 
   db:
     image: mongo
+    privileged: true
     environment:
       - MONGO_INITDB_DATABASE=strapi
     ports:

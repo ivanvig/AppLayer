@@ -1,6 +1,7 @@
 version: '2.1'
 
 services:
+  privileged: true
   bind:
     volumes:
     - ./bind:/data/bind

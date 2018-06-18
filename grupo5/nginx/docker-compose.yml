@@ -3,6 +3,7 @@ version: "2.1"
 services:
   web:
     image: nginx
+    privileged: true
     volumes:
      - ./Config.template:/etc/nginx/nginx.conf
      - ./ssl:/etc/nginx/ssl

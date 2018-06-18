@@ -3,6 +3,7 @@ version: '2.1'
 services:
   api:
     image: strapi/strapi
+    privileged: true
     environment:
       - APP_NAME=strapi-app
       - DATABASE_CLIENT=mongo
@@ -14,9 +15,9 @@ services:
       - HOST=localhost
     #ports:
     #  - 1337:1337
-    #volumes:
-      #- ./strapi-app:/usr/src/api/strapi-app
-      #- /usr/src/api/strapi-app/node_modules
+    volumes:
+      - ./strapi-app:/usr/src/api/strapi-app
+      - /usr/src/api/strapi-app/node_modules
     depends_on:
       - db
     restart: always
@@ -26,6 +27,7 @@ services:
 
   db:
     image: mongo
+    privileged: true
     environment:
       - MONGO_INITDB_DATABASE=strapi
     #ports:
