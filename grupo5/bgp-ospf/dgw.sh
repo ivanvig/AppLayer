@@ -22,7 +22,7 @@ docker exec -it nginx_web_1 ip -6 r del default
 docker exec -it nginx_web_1 ip -6 r add default via 2001:a:2::10
 
 #Webmin
-echo -e "\e[1;36m Webmin \e[0m"
+echo -e "\e[1;32m Webmin \e[0m"
 docker exec -it webminbind_bind_1 apt-get update
 docker exec -it webminbind_bind_1 apt-get install iproute
 docker exec -it webminbind_bind_1 ip -6 r del default
