@@ -3,16 +3,16 @@ version: '2.1'
 services:
   bind:
     volumes:
-    - /srv/docker/bind:/data/bind
+    - ./bind:/data/bind
     environment: 
     - ROOT_PASSWORD=ubuntu
     restart: always
     image: sameersbn/bind:latest
     privileged: true
     ports:
-    - "53:53/tcp"
-    - "53:53/udp"
-    - "10000:10000/tcp"
+    #- "53:53/tcp"
+    #- "53:53/udp"
+    #- "10000:10000/tcp"
     networks:
       red4:
         ipv6_address: 2001:b:4::2

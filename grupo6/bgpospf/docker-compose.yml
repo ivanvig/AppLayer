@@ -93,6 +93,7 @@ services:
     build: ./ospf/.
     volumes:
       - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./client:/client
     image: ospf:20180419
     privileged: true
     ports:
@@ -109,6 +110,7 @@ services:
     build: ./ospf/.
     volumes:
       - ./volumes/ospf/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./client:/client
     image: ospf:20180419
     privileged: true
     ports:
