@@ -1,0 +1,9 @@
+$ttl 38400
+redes.fcefyn2.	IN	SOA	c0e19fdd3f6e. quiero.asado.com. (
+			1529282761
+			10800
+			3600
+			604800
+			38400 )
+redes.fcefyn2.	IN	NS	c0e19fdd3f6e.
+grupo6.redes.fcefyn2.	IN	AAAA	2001:b:2::2
