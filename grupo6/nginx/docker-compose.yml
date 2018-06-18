@@ -27,3 +27,4 @@ networks:
   red2:
     external:
       name: red2
+
