@@ -10,3 +10,7 @@ zone "redes.fcefyn2" {
 	type master;
 	file "/var/lib/bind/redes.fcefyn2.hosts";
 	};
+zone "2.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2.0.0.0.b.0.0.0.1.0.0.2.ip6.arpa" {
+	type master;
+	file "/var/lib/bind/2001:b:2::2.rev";
+	};
