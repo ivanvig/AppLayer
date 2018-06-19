@@ -22,7 +22,7 @@ then
     strapi new ${APP_NAME} --dbclient=$DATABASE_CLIENT --dbhost=$DATABASE_HOST --dbport=$DATABASE_PORT --dbname=$DATABASE_NAME --dbusername=$DATABASE_USERNAME --dbpassword=$DATABASE_PASSWORD
 fi
 
-cd strapi-app
+cd $APP_NAME
 strapi start &
 
 strapiPID=$!
