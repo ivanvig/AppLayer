@@ -18,12 +18,21 @@ options {
 	// If BIND logs error messages about the root key being expired,
 	// you will need to update your keys.  See https://www.isc.org/bind-keys
 	//========================================================================
-	dnssec-validation auto;
+	dnssec-validation no;
 
 	auth-nxdomain no;    # conform to RFC1035
 	listen-on-v6 { any; };
+	recursion yes;
 	allow-recursion {
-		2001:b:2::2;
+		2001:b:4::2;
+		any;
 		};
+	listen-on port 53 {
+		2001:b:4::2;
+		};
+	forwarders {
+		2001:b:4::2 port 53;
+		};
+	dnssec-enable no;
 };
 
