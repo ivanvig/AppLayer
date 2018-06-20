@@ -24,11 +24,10 @@ options {
 	listen-on-v6 { any; };
 	recursion yes;
 	allow-recursion {
-		2001:b:4::2;
 		any;
 		};
 	listen-on port 53 {
-		2001:b:4::2;
+		any;
 		};
 	forwarders {
 		2001:b:4::2 port 53;

@@ -1,7 +1,20 @@
-Squid:
-  image: sameersbn/squid:3.3.8-23
-  ports:
-    - "3128:3128"
-  volumes:
-    - /srv/docker/squid/cache:/var/spool/squid3
-  restart: always
+version: '2.1'
+
+services:
+  Squid:
+    image: sameersbn/squid:3.3.8-23
+    privileged: true
+    #ports:
+    #  - "3128:3128"
+    volumes:
+    - ./squid/cache:/var/spool/squid3
+    restart: always
+    networks:
+      red3:
+        ipv6_address: 2001:a:3::17
+
+networks:
+  red3:
+    external:
+      name: red3
+

@@ -27,3 +27,10 @@ docker exec -it webminbind_bind_1 apt-get update
 docker exec -it webminbind_bind_1 apt-get -qy install iproute
 docker exec -it webminbind_bind_1 ip -6 r del default
 docker exec -it webminbind_bind_1 ip -6 r add default via 2001:a:4::10
+
+#Squid
+echo -e "\e[2;32m Squid \e[0m"
+docker exec -it squid_Squid_1 apt-get update
+docker exec -it squid_Squid_1 apt-get -qy install iproute
+docker exec -it squid_Squid_1 ip -6 r del default
+docker exec -it squid_Squid_1 ip -6 r add default via 2001:a:3::3
