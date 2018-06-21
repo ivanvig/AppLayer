@@ -1,0 +1,14 @@
+#Crear usuario
+curl --header "Content-Type: application/json" --request POST --data '{"identifier":"grupo6","password":"ubuntu"}' http://[2001:a:2::2]:8080/auth/local
+
+#Autenticarse
+curl --header "Content-Type: application/json" --request POST --data '{"identifier":"grupo6","password":"ubuntu"}' http://[2001:a:2::2]:8080/auth/local
+
+#Agregar servidor
+curl --header "Content-Type: application/json" --header "Authorization: Bearer " --request POST --data '{"Nombre":"Servidor3"}' http://[2001:a:2::2]:443/servidores
+
+#Con ssl
+--cacert /cliente/ssl_g5/nginx.crt -k 
+
+#Peticiones
+https://strapi.io/documentation/getting-started/quick-start.html

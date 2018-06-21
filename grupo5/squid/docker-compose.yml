@@ -8,6 +8,8 @@ services:
     #  - "3128:3128"
     volumes:
     - ./squid/cache:/var/spool/squid3
+    - ../bgpospf/resolv.conf:/etc/resolv.conf
+    - ./squid.conf:/etc/squid3/squid.conf
     restart: always
     networks:
       red3:
